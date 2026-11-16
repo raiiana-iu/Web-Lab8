@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: #4ae7d8;
+  color: #192669;
+}
+
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+}
+
+.hero, .panel {
+  background: white;
+  padding: 25px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+}
+button {
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: #b2efeb;
+  cursor: pointer;
+}
+
+pre {
+  padding: 15px;
+  background: #6bbdd3;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
