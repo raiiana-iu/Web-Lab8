@@ -46,3 +46,30 @@ app.post("/api/subscribe", (req, res) => {
 app.get("/api/admin", (req, res) => {
   res.status(403).json({ error: "Forbidden" });
 });
+
+let requestsServed=0;
+function requestLogger(req, res, next) {
+  const timestamp=new Date().toISOString();
+  console.log(`${timestamp} ${req.method} ${req.originalUrl}`);
+  next();
+}
+
+function requestCounter(req, res, next) {
+  requestsServed+=1;
+  next();
+}
+app.use(requestLogger);
+app.use(requestCounter);
+
+app.get("/api/stats", (req, res) => {
+  res.json({ requestsServed });
+});
+
+app.use((req, res) => {
+  if (req.path.startsWith("/api")) {
+    res.status(404).json({ error: "Not found" });
+  } else {
+    res.status(404).type("text").send("404 - Page not found");
+  }
+});
+app.use(express.static(publicDirectory));
