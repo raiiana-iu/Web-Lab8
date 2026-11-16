@@ -39,3 +39,10 @@ app.get("/api/headers", (req, res) => {
     accept: req.get("Accept")||null
   });
 });
+
+app.post("/api/subscribe", (req, res) => {
+  res.status(201).json({ subscribed: true });
+});
+app.get("/api/admin", (req, res) => {
+  res.status(403).json({ error: "Forbidden" });
+});
