@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Programme Information Server</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <h1>Study Programme Information Server</h1>
+      <p>
+        Welcome to our fictional study programme. This small website is served
+        by a Node.js and Express server. Use the buttons below to try its API
+        routes and see the HTTP status and response returned by the server.
+      </p>
+    </header>
+
+    <section class="panel">
+      <h2>Try the API routes</h2>
+      <p class="hint">Each button sends a request to this server.</p>
+
+      <div class="button-grid">
+        <button type="button" data-route="courses">GET /api/courses</button>
+        <button type="button" data-route="status">GET /api/status</button>
+        <button type="button" data-route="headers">GET /api/headers</button>
+        <button type="button" data-route="subscribe">POST /api/subscribe</button>
+        <button type="button" data-route="admin">GET /api/admin</button>
+        <button type="button" data-route="stats">GET /api/stats</button>
+        <button type="button" data-route="missing">GET /api/does-not-exist</button>
+      </div>
+    </section>
+
+    <section class="panel response-panel" aria-live="polite">
+      <div class="response-heading">
+        <h2>Server response</h2>
+        <span id="response-status" class="status">No request yet</span>
+      </div>
+      <pre id="response-output">Choose a button to see the response here.</pre>
+    </section>
+  </main>
+</body>
+</html>
