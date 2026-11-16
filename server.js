@@ -23,3 +23,19 @@ app.get("/robots.txt", (req, res) => {
 app.get("/old-page", (req, res) => {
   res.redirect("/hello");
 });
+app.get("/api/courses", (req, res) => {
+  res.json(courses);
+});
+app.get("/api/status", (req, res) => {
+  res.json({
+    status: "running",
+    nodeVersion: process.version,
+    uptimeSeconds: Math.floor(process.uptime())
+  });
+});
+app.get("/api/headers", (req, res) => {
+  res.json({
+    userAgent: req.get("User-Agent")||null,
+    accept: req.get("Accept")||null
+  });
+});
